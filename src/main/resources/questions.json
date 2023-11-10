@@ -1,0 +1,42 @@
+[
+    {
+        "text": "What are the different types of variables in Java?",
+        "options": [
+            "Static Variables: Shared among all instances of a class, existing independently of any object.",
+            "Global Variables: Also known as instance variables, unique to each class instance, and accessible throughout the class.",
+            "Local Variables: Exist only within the block or method where they're declared and are not known outside it."
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "Static Variables, Global Variables, Local Variables",
+        "difficulty": "MEDIUM",
+        "category": "Java"
+    },
+    {
+        "text": "What are the different types of data structures in Java?",
+        "options": [
+            "Stack",
+            "Queue",
+            "Trees",
+            "HashMaps/HashSets",
+            "Arrays",
+            "Lists"
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "Stack, Queue, Trees, HashMaps/HashSets, Arrays, Lists",
+        "difficulty": "MEDIUM",
+        "category": "Java"
+    },
+    {
+        "text": "What are the different types of control flow statements in Java?",
+        "options": [
+            "Sequence (Code execution top-to-bottom)",
+            "Selection (Statements are executed based on value of a condition)",
+            "Iteration (Statements are executed repeatedly until certain conditions are met)",
+            "Jump (Statements are executed unconditionally)"
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "Sequence, Selection, Iteration, Jump",
+        "difficulty": "MEDIUM",
+        "category": "Java"
+    }
+]
