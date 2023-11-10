@@ -8,18 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class QuizServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(QuizServiceApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(QuizServiceApplication.class, args);
+  }
 }
-
 
 @RestController
 class TestQuizController {
 
-	@GetMapping("/")
-	public String getQuiz() {
-		return "Hello World";
-	}
+  @GetMapping("/")
+  public String getQuiz() {
+    return "Hello World";
+  }
 }
