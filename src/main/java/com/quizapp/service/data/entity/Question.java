@@ -1,6 +1,8 @@
 package com.quizapp.service.data.entity;
 
+import com.quizapp.service.util.enums.Category;
 import com.quizapp.service.util.enums.Difficulty;
+import com.quizapp.service.util.enums.Types;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -27,16 +29,22 @@ public class Question {
   @Column(unique = true, nullable = false)
   private String text;
 
+  @Enumerated(EnumType.STRING)
   @Column(nullable = false)
-  private String type;
+  private Types type;
 
-  @ElementCollection private List<String> options;
+  @ElementCollection
+  @Column(length = 1000)
+  private List<String> options;
 
+  @Column(nullable = false, length = 2000)
   private String answer;
 
   @Enumerated(EnumType.STRING)
   @Column(nullable = false)
   private Difficulty difficulty;
 
-  private String category;
+  @Enumerated(EnumType.STRING)
+  @Column(nullable = false)
+  private Category category;
 }

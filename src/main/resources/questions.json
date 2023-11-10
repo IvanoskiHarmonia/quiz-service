@@ -9,7 +9,7 @@
         "type": "MULTIPLE_CHOICE",
         "answer": "Static Variables, Global Variables, Local Variables",
         "difficulty": "MEDIUM",
-        "category": "Java"
+        "category": "JAVA"
     },
     {
         "text": "What are the different types of data structures in Java?",
@@ -24,7 +24,7 @@
         "type": "MULTIPLE_CHOICE",
         "answer": "Stack, Queue, Trees, HashMaps/HashSets, Arrays, Lists",
         "difficulty": "MEDIUM",
-        "category": "Java"
+        "category": "JAVA"
     },
     {
         "text": "What are the different types of control flow statements in Java?",
@@ -37,6 +37,325 @@
         "type": "MULTIPLE_CHOICE",
         "answer": "Sequence, Selection, Iteration, Jump",
         "difficulty": "MEDIUM",
-        "category": "Java"
+        "category": "JAVA"
+    },
+    {
+        "text": "What are the different types of exceptions in Java?",
+        "options": [
+            "Checked exceptions - (Must be declared in the method signature), If a method throws checked exception, the method must either call it, or declare that it throws it.",
+            "Unchecked exceptions - (Not included in the method signature), if a method throws unchecked exception, the method does not need to call it or declare it."
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "Checked exceptions, Unchecked exceptions",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are the different types of collections in Java?",
+        "options": [
+            "List",
+            "Queue",
+            "Stacks",
+            "Arrays",
+            "Maps"
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "List, Queue, Stacks, Arrays, Maps",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are the different types of streams in Java?",
+        "options": [
+            "IntStream - A stream of primitive int values",
+            "LongStream - A stream of primitive long values",
+            "DoubleStream - A stream of primitive double values"
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "IntStream, LongStream, DoubleStream",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What do Double, String, Long wrapper classes mean? What is a wrapper class?",
+        "options": [
+            "Wrapper Class - A class that encapsulates a primitive data type into an object",
+            "Double - Wraps a double primitive in an object",
+            "String - Not a wrapper class; it's a class representing a sequence of characters",
+            "Long - Wraps a long primitive in an object"
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "Wrapper Class, Double, String, Long",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are the different types of functional interfaces in Java?",
+        "options": [
+            "Consumer - A functional interface with a single abstract method that takes an argument and returns void",
+            "Supplier - A functional interface with a single abstract method that returns a value",
+            "Predicate - A functional interface with a single abstract method that takes an argument and returns a boolean value",
+            "Function - A functional interface with two abstract methods that take an argument and return a value"
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "Consumer, Supplier, Predicate, Function",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are the different types of lambda expressions in Java?",
+        "options": [
+            "Expression lambdas - Lambda expressions that can be used as expressions",
+            "Method reference lambdas - Lambda expressions that can be used to refer to methods",
+            "Block lambdas - Lambda expressions that can be used to group statements"
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "Expression lambdas, Method reference lambdas, Block lambdas",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are the different types of generics in Java?",
+        "options": [
+            "Parameterized types allow you to specify the type of a variable or parameter at compile time. For example, the following code declares a List variable that can only store strings: \n * List<String> names = new ArrayList<>();",
+            "Wildcard types allow you to specify that a variable or parameter can be of any type. For example, the following code declares a List variable that can store any type of object: * List<?> objects = new ArrayList<>();",
+            "Bounded types allow you to specify that a variable or parameter must be of a specific type or a type that is derived from a specific type. For example, the following code declares a List variable that can only store objects that are derived from the String class: * List<String> strings = new ArrayList<>();"
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "Parameterized types, Wildcard types, Bounded types",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are the different types of annotations in Java?",
+        "options": [
+            "Built-in Annotations: Used by the Java compiler itself (@Override, @Deprecated, @SuppressWarnings).",
+            "Meta-Annotations: Used to create custom annotations (@Retention, @Target, @Inherited, @Documented).",
+            "Custom Annotations: Defined by the programmer to add metadata to Java code that can be processed by custom tools."
+        ],
+        "type": "MULTIPLE_CHOICE",
+        "answer": "Built-in Annotations, Meta-Annotations, Custom Annotations",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is Java platform independence?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Java achieves platform independence through the use of bytecode. When Java source code is compiled, it's turned into bytecode that is platform-neutral. This bytecode is then interpreted by the Java Virtual Machine (JVM) on whatever device it is running, making the code executable on many different platforms without modification.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is an RDBMS?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "It uses a structured query language (SQL) for accessing and managing data. RDBMSs enforce data integrity and allow for complex queries, transactions, and concurrency control. They are based on the relational model proposed by E.F. Codd.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is a NoSQL database?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "NoSQL databases are non-relational databases that are document-oriented, key-value pairs, graph databases, or wide-column stores. They are designed to be flexible, scalable, and high-performance.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is a RESTful API?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "REST stands for Representational State Transfer. It is an architectural style for designing APIs. RESTful APIs are stateless, meaning that the server does not need to know anything about what state the client is in and vice versa. RESTful APIs use HTTP requests to perform CRUD (Create, Read, Update, Delete) operations.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is a microservice?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "A microservice is a small, independent, and loosely coupled service that performs a single function. Microservices are independently deployable and scalable. They communicate with each other using APIs.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is a container?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries, and settings.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are the basic access specifiers for Java classes?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Public: The class is accessible by any other class.,Default (package-private): The class is only accessible by classes in the same package (if no specifier is used)., Protected: The class is accessible within its own package and by subclasses.,Private: The class is only accessible within its own class.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are loops in Java and what are the 3 types of loops?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "For: let’s you repeat specific number of times\nWhile: repeats until loop’s condition is false\nDo-While: Similar to while loop, but it runs at least once before checking the condition which is in the end.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between fail-fast and fail-safe iterators?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "* Fail-fast iterators stop working if they realize the collection they are going through is changing, while fail-safe iterators don't mind and keep going.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between a HashMap and a Hashtable?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "HashMap is not synchronized, while Hashtable is synchronized. This makes HashMap better for non-threaded applications, as unsynchronized Objects typically perform better than synchronized ones.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between a HashMap and a HashSet?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "HashMap stores key-value pairs, while HashSet stores only values. HashMap uses put() method to add elements, while HashSet uses add() method.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between a HashMap and a TreeMap?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "HashMap is implemented as a hash table, and a TreeMap is implemented as a red-black tree. A HashMap does not guarantee any particular order of its elements, while a TreeMap sorts its entries by their keys.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between a HashMap and a LinkedHashMap?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "LinkedHashMap is a subclass of HashMap that maintains a linked list of the entries in the map, in the order in which they were inserted. This allows insertion-order iteration over the map. HashMap does not guarantee any particular order of its elements.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between a HashMap and a WeakHashMap?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "WeakHashMap is an implementation of the Map interface that stores only weak references to its keys. Storing only weak references allows a key-value pair to be garbage-collected when its key is no longer referenced outside of the WeakHashMap.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the MVC design pattern?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "MVC is a way to organize code in an application into three parts: one part for handling data (Model), one part for displaying the user interface (View), and one part for controlling how the user interface works (Controller).",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What have you built using Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Long time ago, for my Programming 1 class, I was able to build stock grabber, an application built in Java as a backend, and JavaFX as a frontend, In this program I was able to fix the issue of JavaFX not being able to run 2 simultaneous jobs by using multi-threading, bypassing the blocking I/O of JavaFx.\nI also recently worked on a project called Bookstore-API, I was able to lead the team to implement full bookstore functionality from wishlists, carts, profile management and so on, by using Spring boot framework, H2 as our primary database, as it was not required to have actual database in place (H2 is a in-memory database that used mostly used during initial development stages, it helps with setup, and it does not need configuration to work). To enhance the productivity of the team, and the code standards I also added GitHub Actions, which is a Continues Integration and Continuous Delivery platform that allows you automate builds, tests, and deployment pipelines. By using GitHub Actions, I was able to enforce proper code standards, which helped us to keep our code clean and easy to read. In this project, I also enforced sprint backlog, and ticketing system (similar to Jira’s way of doing tickets), that helped track our work, and prioritize more important features.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between a class and an object?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "A class is a blueprint for an object. An object is an instance of a class. A class is a logical entity, while an object is a physical entity.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between a class and an interface?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "A class can implement multiple interfaces, but a class can extend only one other class. An interface cannot implement another interface, while a class can implement an interface.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between an abstract class and an interface?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "An abstract class can have instance variables that are not static and final, while an interface cannot. An abstract class can have any visibility: public, private, protected, while an interface's visibility must be public or package.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between an abstract class and a concrete class?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "An abstract class cannot be instantiated, while a concrete class can be instantiated. An abstract class can have abstract and non-abstract methods, while a concrete class can only have non-abstract methods.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between an abstract class and a final class?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "An abstract class cannot be instantiated, while a final class can be instantiated. An abstract class can have abstract and non-abstract methods, while a final class can only have non-abstract methods.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What does @Bean mean in spring",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "The @Bean annotation in Spring Boot is used to declare a method that will be called to create a bean. The bean can then be injected into other beans or used in other ways.",
+        "difficulty": "EASY",
+        "category": "SPRING"
     }
 ]
