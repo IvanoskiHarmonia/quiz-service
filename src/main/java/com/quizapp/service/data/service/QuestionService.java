@@ -5,6 +5,7 @@ import com.quizapp.service.data.repository.QuestionRepository;
 import com.quizapp.service.util.enums.Category;
 import com.quizapp.service.util.enums.Difficulty;
 import com.quizapp.service.util.enums.Types;
+import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,21 +20,27 @@ public class QuestionService {
   }
 
   public List<Question> getAllQuestions() {
-    return questionRepository.findAll();
+    return shuffleQuestions(questionRepository.findAll());
   }
 
   public List<Question> getQuestionsByCategory(String category) {
-    return questionRepository.findByCategory(Category.valueOf(category));
+    return shuffleQuestions(questionRepository.findByCategory(Category.valueOf(category)));
   }
 
   public List<Question> getQuestionsByCategoryAndDifficulty(String category, String difficulty) {
-    return questionRepository.findByCategoryAndDifficulty(
-        Category.valueOf(category), Difficulty.valueOf(difficulty));
+    return shuffleQuestions(
+        questionRepository.findByCategoryAndDifficulty(
+            Category.valueOf(category), Difficulty.valueOf(difficulty)));
   }
 
   public List<Question> getQuestionsByCategoryAndDifficultyAndType(
       String category, String difficulty, String type) {
     return questionRepository.findByCategoryAndDifficultyAndType(
         Category.valueOf(category), Difficulty.valueOf(difficulty), Types.valueOf(type));
+  }
+
+  private List<Question> shuffleQuestions(List<Question> questions) {
+    Collections.shuffle(questions);
+    return questions;
   }
 }
