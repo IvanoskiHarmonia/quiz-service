@@ -8,7 +8,7 @@
         ],
         "type": "MULTIPLE_CHOICE",
         "answer": "Static Variables, Global Variables, Local Variables",
-        "difficulty": "MEDIUM",
+        "difficulty": "EASY",
         "category": "JAVA"
     },
     {
@@ -23,7 +23,7 @@
         ],
         "type": "MULTIPLE_CHOICE",
         "answer": "Stack, Queue, Trees, HashMaps/HashSets, Arrays, Lists",
-        "difficulty": "MEDIUM",
+        "difficulty": "EASY",
         "category": "JAVA"
     },
     {
@@ -61,7 +61,7 @@
         ],
         "type": "MULTIPLE_CHOICE",
         "answer": "List, Queue, Stacks, Arrays, Maps",
-        "difficulty": "MEDIUM",
+        "difficulty": "EASY",
         "category": "JAVA"
     },
     {
@@ -73,7 +73,7 @@
         ],
         "type": "MULTIPLE_CHOICE",
         "answer": "IntStream, LongStream, DoubleStream",
-        "difficulty": "MEDIUM",
+        "difficulty": "EASY",
         "category": "JAVA"
     },
     {
@@ -86,7 +86,7 @@
         ],
         "type": "MULTIPLE_CHOICE",
         "answer": "Wrapper Class, Double, String, Long",
-        "difficulty": "MEDIUM",
+        "difficulty": "EASY",
         "category": "JAVA"
     },
     {
@@ -224,7 +224,7 @@
             ""
         ],
         "type": "OPEN_ENDED",
-        "answer": "* Fail-fast iterators stop working if they realize the collection they are going through is changing, while fail-safe iterators don't mind and keep going.",
+        "answer": "Fail-fast iterators stop working if they realize the collection they are going through is changing, while fail-safe iterators don't mind and keep going.",
         "difficulty": "MEDIUM",
         "category": "JAVA"
     },
@@ -357,5 +357,375 @@
         "answer": "The @Bean annotation in Spring Boot is used to declare a method that will be called to create a bean. The bean can then be injected into other beans or used in other ways.",
         "difficulty": "EASY",
         "category": "SPRING"
+    },
+    {
+        "text": "How did you design that thing? What were the key principles you followed?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "SOLID principles, Design Patterns, Clean Code, UML Diagram to represent the R-DB, Unit testing with JUnit.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "How did you test that thing?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "To test the application (Bookstore-API), I firstly introduced Unit testing using JUnit tests, next I tested the endpoints for positive and negative tests to ensure that everything works by logic as expected.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "How would you approach finding a solution to a problem/bug in your code?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Understand the problem by reproducing the bug, checking logs, and writing test cases that fail due to the bug.\n\nIn-depth Approach: Once the issue is identified, debug the code using a debugger, check version control history for recent changes that might have caused the issue, and consider the stack trace if there's an exception involved.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "Why might an SQL query suddenly begin to perform much slower than usual standards?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Look for missing indexes, query not using indexes, or increased data volume.\nIn-depth Investigation: Analyze the execution plan of the query, check for database contention or locks, and monitor the database and server performance metrics for bottlenecks.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the role for a ClassLoader in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "It loads Java classes into memory when they are needed.\nA ClassLoader reads the bytecode of Java classes and makes them available to the JVM. It plays a critical role in the concept of Java’s runtime environment and can also be used to load classes at runtime from various sources.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is an Interpreter in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "An interpreter translates and executes the Java bytecode line by line on the fly.\nThe Java interpreter is part of the JVM that reads the bytecode, interprets it, and executes the instructions directly on the host machine.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "How do you find memory leak in Java application?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Use profiling tools like VisualVM or Java Mission Control to monitor the heap.\nIdentify unusually long-lived objects and investigate the paths to GC roots to see why they are retained in memory.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "How do you find which part of your application/object is consuming most of your heap?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Take a heap dump and analyze it.\nTools like Eclipse Memory Analyzer (MAT) can be used to perform heap dump analysis to find objects that consume a lot of memory and to understand memory consumption patterns.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "How does Collection Framework work",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "The Collection Framework provides a set of interfaces and classes for storing and manipulating groups of data as objects.\nIt includes various interfaces like List, Set, Queue, and Map, along with their implementation classes like ArrayList, HashSet, LinkedList, PriorityQueue, HashMap, etc. These collections handle data in different ways, for example, List allows duplicate elements and maintains order, while Set does not allow duplicates and Map stores key-value pairs. The framework is designed to allow interoperability among different types of collections, algorithms for sorting and searching, and interfaces that define different collections' behavior.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "How does Concurrency API work",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "The Concurrency API provides tools for writing concurrent (multi-threaded) programs for better performance on multi-core systems.\nIntroduced mainly in java.util.concurrent package, it includes classes like ExecutorService to manage threads, ConcurrentHashMap for thread-safe collections, Future to represent the result of an asynchronous computation, and Lock for controlling access to a shared resource. It also contains tools for synchronizing thread communication like CountDownLatch, CyclicBarrier, Semaphore, and Phaser. This API is crucial for writing reliable and scalable Java applications that can handle multiple tasks simultaneously.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "Explain the concept of ‘overloading’ and ‘overriding’ in Java",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Overloading is when you define a method with same name, but different parameters.\nOverriding is a technique where you override the functionality of a method that you inherited from a parent class.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is a JVM and how does it work?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "The Java Virtual Machine (JVM) is a core component of the Java platform that executes Java bytecode, enabling Java applications to run on any platform without needing recompilation. It handles program memory, manages execution, and ensures Java's platform independence. The JVM turns Java bytecode into machine code suitable for the specific CPU and operating system at runtime, adhering to the principle of \"Write Once, Run Anywhere\" (WORA).",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "Can you explain the difference between a HashSet and a TreeSet in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "TreeSet is a set of values that are ordered, and HashSet is a set where values are not sorted/no in order.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is a memory leak and how can you minimize them in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Memory leaks in Java can arise from several scenarios. The most common cause is leaking objects, where objects are no longer needed but still occupy memory due to lingering references or improper management within the application. Circular references also contribute to memory leaks, occurring when two objects refer to each other and thus prevent each other's garbage collection, even if they are not used elsewhere. Additionally, memory leaks can result from unclosed resources, such as files or database connections, which continue to consume resources if not properly closed.\nTo minimize memory leaks in Java, several practices can be employed. Using the WeakReference class allows for references that do not prevent the garbage collection of objects, enabling their memory to be reclaimed when no longer in use. The finalize() method, called before an object is garbage collected, can be utilized for cleaning up resources. The try-with-resources statement is crucial for ensuring proper closure of resources, particularly when exceptions occur. Lastly, employing a memory profiler is a proactive approach to identifying and resolving memory leaks, providing insights into memory usage and potential issues within an application.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "How would you implement an immutable class in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Declare the class as final so it can’t be extended.\nMake all of the fields private so that direct access is not allowed.\nDon’t provide setter methods for variables.\nMake all mutable fields final so that a field’s value can be assigned only once.\nInitialize all fields using a constructor method performing deep copy.\nPerform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "Can you explain the difference between String, StringBuilder, and StringBuffer?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "String is immutable whereas StringBuffer and StringBuilder are mutable classes.\nStringBuffer is thread-safe and synchronized whereas StringBuilder is not.\nThat's why StringBuilder is faster than StringBuffer. ",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What does it mean a class/type to be thread safe? what is thread-safe vs non-thread-safe?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Thread-Safe:\n  * A class is thread-safe if it ensures the integrity of its instances when used by multiple threads simultaneously. Internal synchronization is used to prevent concurrent access issues. For example, java.util.concurrent.ConcurrentHashMap is thread-safe as it can be accessed by many threads without external synchronization.\nNon-Thread-Safe:\n  * A class is non-thread-safe if its methods do not prevent race conditions when accessed by multiple threads at once. Users of the class must implement their own synchronization to maintain data integrity. An example is java.util.ArrayList, which requires external synchronization for concurrent modifications.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between an abstract class and an interface in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "The main difference between an abstract class and an interface is that an abstract class can have concrete methods, while an interface can only have abstract methods.\nAbstract vs Concrete Methods: In Java, a concrete method is a method that has a body. An abstract method is a method that does not have a body.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the purpose of the static keyword in Java? Give an example.",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "The static keyword in Java is used to indicate that a particular member (variable or method) belongs to the class itself, rather than to instances of the class.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "Can you explain the concept of the Java Class Loader?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "It loads Java classes into memory when they are needed.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "Explain the concept of reflection in Java and where it would be useful.",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Reflection in Java is a mechanism that allows programs to inspect and modify the behavior of classes, interfaces, fields, and methods at runtime, enabling dynamic manipulation of code. It is particularly useful for scenarios like serialization, deserialization, frameworks that require a lot of boilerplate code, and when interfacing with APIs that are not known at compile time.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are annotations in Java? Can you provide some examples of how you’ve used them?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Annotations in Java are a form of metadata that provide information about the program but are not part of the program itself. Annotations have no direct effect on the operation of the code they annotate.\nI have used them in overriding methods, testing like @Test, @BeforeEach and so on, in Spring @Entity, @Service, and more.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are the benefits of using Generics in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Generics enable types (classes and interfaces) to be parameters when defining classes, interfaces, and methods. This leads to stronger type checks at compile time, eliminating the risk of ClassCastException, and allowing for more generic programming. They also enable you to implement generic algorithms that work on collections of different types.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "How do you convert a JSON string to a Java object and vice versa?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "This can be done using libraries like Jackson or Gson. To convert a JSON string to a Java object, you would parse the JSON using these libraries' readValue method. To convert a Java object to a JSON string, you would use the writeValueAsString method.\n  * Gson gson = new Gson();\n  * MyObject obj = gson.fromJson(jsonString, MyObject.class);\n  * String json = gson.toJson(obj);",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the Java Persistence API (JPA), and why would you use it?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "JPA is a specification for accessing, persisting, and managing data between Java objects and a relational database. You would use JPA to map Java objects to database tables and to manage their persistence without dealing directly with SQL operations, which simplifies the data handling in the application.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is Dependency Injection and how can it be implemented in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Dependency Injection is a design pattern that allows a class’s dependencies to be injected at runtime, which decouples the classes' instantiation and behavior. It can be implemented in Java using frameworks like Spring, where dependencies are injected using annotations like @Autowired.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "Can you explain the concept of a Java Servlet and its life cycle?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "A Java Servlet is a Java program that extends the capabilities of servers that host applications accessed via a request-response programming model. Its life cycle includes initialization (init method), handling client requests (service method), and cleanup (destroy method).",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "How do you ensure that your Java code is thread-safe?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "To ensure thread-safety, use synchronization where necessary, use thread-safe collections like ConcurrentHashMap, write immutable classes, and use atomic variables and locks where required.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "How does the Garbage Collector work in Java, and what does it do?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "The Garbage Collector in Java automatically manages memory by deallocating objects that are no longer reachable in the application. It identifies unused objects and reclaims their memory while the program is running.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "Can you explain the differences between final, finally, and finalize?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "final: A keyword that can be used to mark a variable as unchangeable, a method as non-overridable, or a class as non-inheritable.\nfinally: A block that is used in a try-catch structure that ensures execution of code regardless of whether an exception is thrown or not.\nfinalize: A method that the garbage collector calls before memory is reclaimed, which can be overridden to clean up resources, although its use is discouraged in favor of try-with-resources.",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
+    },
+    {
+        "text": "How would you handle multiple versions of a web service in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Multiple versions can be handled by versioning the API using different URL paths or parameters and maintaining different endpoints for each version.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What is the difference between == and .equals() in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "== checks for reference equality, whereas .equals() checks for object content equality, which can be overridden in custom types.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "How would you troubleshoot a slow-running Java application?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "You would profile the application using tools like VisualVM, analyze heap dumps, check for inefficient algorithms, inspect database queries, and look at thread management to identify bottlenecks.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "Explain how you would use a Stream in Java 8 or higher.",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Streams provide a high-level abstraction for performing operations on collections of objects, including filtering, mapping, and reduction, in a functional style.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "Can you discuss the visibility of a protected member of a class?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "A protected member is accessible within all classes in the same package and within subclasses, even if they are in different packages.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "What are the best practices for exception handling in Java?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Always catch only those exceptions that you can actually handle, use specific exception types, never catch Throwable or Exception directly unless necessary, and avoid empty catch blocks. Always clean up after handling an exception, if needed.",
+        "difficulty": "EASY",
+        "category": "JAVA"
+    },
+    {
+        "text": "How do you use Optional in Java, and what problem does it solve?",
+        "options": [
+            ""
+        ],
+        "type": "OPEN_ENDED",
+        "answer": "Optional is a container object used to contain not-null objects. It provides a way to avoid NullPointerException by providing methods for checking if a value is present or not.\nUsing Optional makes the code more readable and can help in preventing null-related errors by providing a clear API for handling 'optional' values (values that can be null).",
+        "difficulty": "MEDIUM",
+        "category": "JAVA"
     }
 ]
