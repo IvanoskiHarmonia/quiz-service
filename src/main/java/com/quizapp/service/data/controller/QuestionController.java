@@ -20,39 +20,30 @@ public class QuestionController {
 
   @Autowired private QuestionService questionService;
 
-  // http://localhost:8080/questions/add
+  // http://localhost:8000/questions/add
   @PostMapping("/add")
   public ResponseEntity<Question> addQuestion(@RequestBody Question question) {
     return ResponseEntity.ok(questionService.saveQuestion(question));
   }
 
-  // http://localhost:8080/questions/all
+  // http://localhost:8000/questions/all
   @GetMapping("/all")
   public ResponseEntity<List<Question>> getAllQuestions() {
     return ResponseEntity.ok(questionService.getAllQuestions());
   }
 
-  // http://localhost:8080/questions/category
+  // http://localhost:8000/questions/category
   @GetMapping("/category/{category}")
   public ResponseEntity<List<Question>> getQuestionsByCategory(@PathVariable String category) {
     return ResponseEntity.ok(questionService.getQuestionsByCategory(category.toUpperCase()));
   }
 
-  // http://localhost:8080/questions/category-and-difficulty/
+  // http://localhost:8000/questions/category-and-difficulty/
   @GetMapping("/category-and-difficulty/{category}/{difficulty}")
   public ResponseEntity<List<Question>> getQuestionsByCategoryAndDifficulty(
       @PathVariable String category, @PathVariable String difficulty) {
     return ResponseEntity.ok(
         questionService.getQuestionsByCategoryAndDifficulty(
             category.toUpperCase(), difficulty.toUpperCase()));
-  }
-
-  // http://localhost:8080/questions/category-and-difficulty-and-type/
-  @GetMapping("/category-and-difficulty-and-type/{category}/{difficulty}/{type}")
-  public ResponseEntity<List<Question>> getQuestionsByCategoryAndDifficultyAndType(
-      @PathVariable String category, @PathVariable String difficulty, @PathVariable String type) {
-    return ResponseEntity.ok(
-        questionService.getQuestionsByCategoryAndDifficultyAndType(
-            category.toUpperCase(), difficulty.toUpperCase(), type.toUpperCase()));
   }
 }
