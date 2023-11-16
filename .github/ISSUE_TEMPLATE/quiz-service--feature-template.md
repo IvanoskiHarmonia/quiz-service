@@ -10,12 +10,12 @@ assignees: ''
 ## Feature Overview
 
 ### Summary
-Provide a concise summary of the new feature or enhancement for the Bookstore API.
+Provide a concise summary of the new feature or enhancement for the Quiz App.
 
 ### Rationale
 - **Motivation**: Describe the main reasons or the problem that necessitates this feature.
-- **Functionality**: Detail what this feature will achieve or how it will improve the API.
-- **Impact**: Identify the main components of the API that will be affected, such as specific endpoints, database tables, or any related services.
+- **Functionality**: Detail what this feature will achieve or how it will improve the backend functionality.
+- **Impact**: Identify the main components of the backend that will be affected, such as specific endpoints, database tables, or any related services.
 
 ### Acceptance Criteria
 List the specific conditions that must be met for this feature to be considered complete. This might include:
