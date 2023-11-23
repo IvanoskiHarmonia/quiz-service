@@ -15,7 +15,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class QuizService {
 
-  @Autowired private QuestionRepository questionRepository;
+  private final QuestionRepository questionRepository;
+
+  @Autowired
+  public QuizService(QuestionRepository questionRepository) {
+    this.questionRepository = questionRepository;
+  }
 
   public List<Question> getRandomQuestions() {
     List<Question> allQuestions = questionRepository.findAll();

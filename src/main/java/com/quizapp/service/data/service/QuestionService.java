@@ -14,15 +14,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class QuestionService {
 
-  @Autowired private QuestionRepository questionRepository;
-  @Autowired private CategoryRepository categoryRepository;
+  private static final String CATEGORY_NOT_FOUND = "Category not found: ";
+
+  private final QuestionRepository questionRepository;
+  private final CategoryRepository categoryRepository;
+
+  @Autowired
+  public QuestionService(
+      QuestionRepository questionRepository, CategoryRepository categoryRepository) {
+    this.questionRepository = questionRepository;
+    this.categoryRepository = categoryRepository;
+  }
 
   public Question saveQuestion(Question question) {
     String categoryName = question.getCategory().getName();
     Category category =
         categoryRepository
             .findByName(categoryName)
-            .orElseThrow(() -> new EntityNotFoundException("Category not found: " + categoryName));
+            .orElseThrow(() -> new EntityNotFoundException(CATEGORY_NOT_FOUND + categoryName));
     question.setCategory(category);
     return questionRepository.save(question);
   }
@@ -35,7 +44,7 @@ public class QuestionService {
     Category category =
         categoryRepository
             .findByName(categoryName)
-            .orElseThrow(() -> new EntityNotFoundException("Category not found: " + categoryName));
+            .orElseThrow(() -> new EntityNotFoundException(CATEGORY_NOT_FOUND + categoryName));
     return shuffleQuestions(questionRepository.findByCategory(category));
   }
 
@@ -44,7 +53,7 @@ public class QuestionService {
     Category category =
         categoryRepository
             .findByName(categoryName)
-            .orElseThrow(() -> new EntityNotFoundException("Category not found: " + categoryName));
+            .orElseThrow(() -> new EntityNotFoundException(CATEGORY_NOT_FOUND + categoryName));
     return shuffleQuestions(
         questionRepository.findByCategoryAndDifficulty(category, Difficulty.valueOf(difficulty)));
   }

@@ -19,7 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/quizzes")
 public class QuizController {
 
-  @Autowired private QuizService quizService;
+  private final QuizService quizService;
+
+  @Autowired
+  public QuizController(QuizService quizService) {
+    this.quizService = quizService;
+  }
 
   @GetMapping("/random10")
   public ResponseEntity<List<Question>> getRandom10Questions() {
