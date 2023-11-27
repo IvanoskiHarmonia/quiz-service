@@ -41,11 +41,6 @@ public class Quiz {
   @OneToMany(mappedBy = "quiz")
   private Set<UserResponse> userResponses;
 
-  @ToString.Exclude
-  @EqualsAndHashCode.Exclude
-  @OneToMany(mappedBy = "quiz")
-  private Set<QuizResult> quizResults;
-
   @ManyToOne
   @JoinColumn(name = "category_id")
   private Category category;

@@ -43,9 +43,4 @@ public class User {
   @EqualsAndHashCode.Exclude
   @OneToMany(mappedBy = "createdBy")
   private Set<Quiz> quizzes;
-
-  @ToString.Exclude
-  @EqualsAndHashCode.Exclude
-  @OneToMany(mappedBy = "user")
-  private Set<QuizResult> quizResults;
 }

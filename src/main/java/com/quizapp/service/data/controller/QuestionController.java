@@ -15,30 +15,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/questions")
+@RequestMapping("/api/questions")
 public class QuestionController {
 
-  @Autowired private QuestionService questionService;
+  private final QuestionService questionService;
 
-  // http://localhost:8000/questions/add
+  @Autowired
+  public QuestionController(QuestionService questionService) {
+    this.questionService = questionService;
+  }
+
   @PostMapping("/add")
   public ResponseEntity<Question> addQuestion(@RequestBody Question question) {
     return ResponseEntity.ok(questionService.saveQuestion(question));
   }
 
-  // http://localhost:8000/questions/all
   @GetMapping("/all")
   public ResponseEntity<List<Question>> getAllQuestions() {
     return ResponseEntity.ok(questionService.getAllQuestions());
   }
 
-  // http://localhost:8000/questions/category
   @GetMapping("/category/{category}")
   public ResponseEntity<List<Question>> getQuestionsByCategory(@PathVariable String category) {
     return ResponseEntity.ok(questionService.getQuestionsByCategory(category.toUpperCase()));
   }
 
-  // http://localhost:8000/questions/category-and-difficulty/
   @GetMapping("/category-and-difficulty/{category}/{difficulty}")
   public ResponseEntity<List<Question>> getQuestionsByCategoryAndDifficulty(
       @PathVariable String category, @PathVariable String difficulty) {
