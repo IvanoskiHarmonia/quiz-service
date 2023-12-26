@@ -14,7 +14,20 @@ public class UserService {
     this.userRepository = userRepository;
   }
 
-  public User saveUser(User user) {
-    return userRepository.save(user);
+  public User createOrUpdateUser(String email, String token, Long expiresAt) {
+    User existingUser = userRepository.findByEmail(email).orElse(null);
+
+    if (existingUser != null) {
+      existingUser.setToken(token);
+      existingUser.setExpiresAt(expiresAt);
+      return userRepository.save(existingUser);
+    } else {
+      User user = new User();
+      user.setEmail(email);
+      user.setToken(token);
+      user.setExpiresAt(expiresAt);
+
+      return userRepository.save(user);
+    }
   }
 }

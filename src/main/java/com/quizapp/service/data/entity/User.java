@@ -26,8 +26,12 @@ public class User {
   @Column(name = "user_id")
   private Long id;
 
+  @Column(unique = true, nullable = false)
   private String email;
+
+  @Column(unique = true)
   private String token;
+
   private Long expiresAt;
 
   @ToString.Exclude
