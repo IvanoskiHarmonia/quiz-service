@@ -1,5 +1,6 @@
 package com.quizapp.service.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.quizapp.service.util.enums.Difficulty;
 import com.quizapp.service.util.enums.Types;
 import jakarta.persistence.Column;
@@ -46,5 +47,6 @@ public class Question {
 
   @ManyToOne
   @JoinColumn(name = "quiz_id")
+  @JsonIgnore
   private Quiz quiz;
 }

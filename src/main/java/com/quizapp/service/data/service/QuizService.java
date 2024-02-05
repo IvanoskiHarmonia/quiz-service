@@ -4,11 +4,15 @@ import com.quizapp.service.data.dto.QuestionAnswerPair;
 import com.quizapp.service.data.dto.QuizResult;
 import com.quizapp.service.data.dto.QuizSubmission;
 import com.quizapp.service.data.entity.Question;
+import com.quizapp.service.data.entity.Quiz;
 import com.quizapp.service.data.repository.QuestionRepository;
+import com.quizapp.service.data.repository.QuizRepository;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,16 +20,27 @@ import org.springframework.stereotype.Service;
 public class QuizService {
 
   private final QuestionRepository questionRepository;
+  private final QuizRepository quizRepository;
 
   @Autowired
-  public QuizService(QuestionRepository questionRepository) {
+  public QuizService(QuestionRepository questionRepository, QuizRepository quizRepository) {
     this.questionRepository = questionRepository;
+    this.quizRepository = quizRepository;
   }
 
   public List<Question> getRandomQuestions() {
     List<Question> allQuestions = questionRepository.findAll();
     Collections.shuffle(allQuestions);
     return allQuestions.subList(0, 10);
+  }
+
+  public List<Quiz> getAllQuizzes() {
+    return quizRepository.findAll();
+  }
+
+  @Transactional
+  public void saveQuiz(Quiz quiz) {
+    quizRepository.save(quiz);
   }
 
   public QuizResult evaluateQuiz(QuizSubmission submission) {
