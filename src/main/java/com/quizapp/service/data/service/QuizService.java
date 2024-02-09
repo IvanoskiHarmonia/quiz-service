@@ -7,12 +7,11 @@ import com.quizapp.service.data.entity.Question;
 import com.quizapp.service.data.entity.Quiz;
 import com.quizapp.service.data.repository.QuestionRepository;
 import com.quizapp.service.data.repository.QuizRepository;
+import jakarta.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
