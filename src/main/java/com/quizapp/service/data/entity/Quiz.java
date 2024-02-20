@@ -62,7 +62,7 @@ public class Quiz {
 
   @ToString.Exclude
   @EqualsAndHashCode.Exclude
-  @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "quiz", cascade = CascadeType.MERGE)
   private List<Question> questions;
 
   @ToString.Exclude

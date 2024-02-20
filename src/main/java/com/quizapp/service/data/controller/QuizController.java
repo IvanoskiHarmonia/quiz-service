@@ -46,30 +46,13 @@ public class QuizController {
     return ResponseEntity.ok(quizzes);
   }
 
-  @PostMapping("/create-random10")
-  public ResponseEntity<Quiz> createRandomQuiz() {
-    List<Question> questions = quizService.getRandomQuestions();
-    if (questions.isEmpty()) {
-      return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+  @PostMapping("/create")
+  public ResponseEntity<Quiz> createQuiz(@RequestBody Quiz quiz) {
+    if (quiz.getQuestions() == null || quiz.getQuestions().isEmpty()) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 
-    // Calculate difficulty
-    Difficulty quizDifficulty = calculateQuizDifficulty(questions);
-
-    // Generate random title and description
-    String randomTitle = generateRandomTitle(); // Implement this method
-    String randomDescription = generateRandomDescription(); // Implement this method
-
-    Quiz quiz = new Quiz();
-    quiz.setTitle(randomTitle);
-    quiz.setDescription(randomDescription);
-    quiz.setDifficulty(quizDifficulty);
-
-    for (Question question : questions) {
-      question.setQuiz(quiz);
-    }
-    quiz.setQuestions(questions);
-
+    // Assuming your service method handles setting up the questions' relationship with the quiz
     quizService.saveQuiz(quiz);
     return new ResponseEntity<>(quiz, HttpStatus.CREATED);
   }
