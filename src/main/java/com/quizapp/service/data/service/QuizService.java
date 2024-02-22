@@ -38,33 +38,52 @@ public class QuizService {
   }
 
   @Transactional
-  public void saveQuiz(Quiz quiz) {
+  public Quiz saveQuiz(Quiz quiz) {
     quizRepository.save(quiz);
+    return quiz;
   }
 
-  public QuizResult evaluateQuiz(QuizSubmission submission) {
+  public Quiz findQuizById(Long quizId) {
+    return quizRepository.findById(quizId).orElse(null);
+  }
+
+  /**
+   * @Description: This method is used to evaluate the quiz submission and return the result.
+   *
+   * @param quiz The quiz to be evaluated
+   * @param submission The user's submission
+   * @return QuizResultDTO
+   */
+  public QuizResult evaluateQuiz(Quiz quiz, QuizSubmission submission) {
     int score = 0;
     List<QuestionAnswerPair> answerDetails = new ArrayList<>();
 
-    for (Map.Entry<Long, String> entry : submission.getAnswers().entrySet()) {
-      Long questionId = entry.getKey();
-      String userAnswer = entry.getValue();
+    Map<Long, String> submittedAnswers = submission.getAnswers();
 
-      Question question = questionRepository.findById(questionId).orElse(null);
-      if (question != null) {
-        boolean isCorrect = question.getAnswer().equals(userAnswer);
-        if (isCorrect) {
-          score++;
-        }
+    for (Question question : quiz.getQuestions()) {
+      Long questionId = question.getId();
+      String correctAnswer = question.getAnswer();
+      String userAnswer = submittedAnswers.getOrDefault(questionId, "");
 
-        answerDetails.add(new QuestionAnswerPair(question, userAnswer, isCorrect));
+      boolean isCorrect = correctAnswer.equals(userAnswer);
+      if (isCorrect) {
+        score++;
       }
+
+      answerDetails.add(new QuestionAnswerPair(question, userAnswer, isCorrect));
     }
 
-    int totalScore = calculateScore(score, submission.getAnswers().size());
-    return new QuizResult(totalScore, answerDetails);
+    return new QuizResult(score, answerDetails);
   }
 
+  /**
+   * @CurrentStatus: This method is not implemented yet. @Description: This method is used to
+   * calculate the score based on the number of correct answers.
+   *
+   * @param correctAnswers The number of correct answers
+   * @param totalQuestions The total number of questions
+   * @return int
+   */
   private int calculateScore(int correctAnswers, int totalQuestions) {
     return (int) (((double) correctAnswers / totalQuestions) * 100);
   }

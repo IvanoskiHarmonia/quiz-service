@@ -4,11 +4,10 @@ import com.quizapp.service.data.dto.QuizResult;
 import com.quizapp.service.data.dto.QuizSubmission;
 import com.quizapp.service.data.entity.Question;
 import com.quizapp.service.data.entity.Quiz;
+import com.quizapp.service.data.repository.QuestionRepository;
 import com.quizapp.service.data.service.QuizService;
-import com.quizapp.service.util.enums.Difficulty;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,11 +27,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class QuizController {
 
   private final QuizService quizService;
+  private final QuestionRepository questionRepository;
   Random random = new Random();
 
   @Autowired
-  public QuizController(QuizService quizService) {
+  public QuizController(QuizService quizService, QuestionRepository questionRepository) {
     this.quizService = quizService;
+    this.questionRepository = questionRepository;
   }
 
   @GetMapping("/random10")
@@ -52,44 +54,50 @@ public class QuizController {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 
-    // Assuming your service method handles setting up the questions' relationship with the quiz
-    quizService.saveQuiz(quiz);
-    return new ResponseEntity<>(quiz, HttpStatus.CREATED);
+    // Fetch existing questions and associate with the new quiz
+    List<Question> existingQuestions =
+        quiz.getQuestions().stream()
+            .map(Question::getId)
+            .filter(Objects::nonNull)
+            .map(id -> questionRepository.findById(id).orElse(null))
+            .collect(Collectors.toList());
+
+    quiz.setQuestions(existingQuestions);
+    existingQuestions.forEach(question -> question.setQuiz(quiz)); // Set the back reference
+
+    Quiz savedQuiz = quizService.saveQuiz(quiz);
+    return new ResponseEntity<>(savedQuiz, HttpStatus.CREATED);
   }
 
-  private Difficulty calculateQuizDifficulty(List<Question> questions) {
-    Map<Difficulty, Long> difficultyCount =
-        questions.stream()
-            .collect(Collectors.groupingBy(Question::getDifficulty, Collectors.counting()));
-
-    return Collections.max(difficultyCount.entrySet(), Map.Entry.comparingByValue()).getKey();
+  @GetMapping("/{quizId}/questions")
+  public ResponseEntity<List<Question>> getQuizQuestions(@PathVariable Long quizId) {
+    try {
+      Quiz quiz = quizService.findQuizById(quizId);
+      if (quiz == null) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+      }
+      return ResponseEntity.ok(quiz.getQuestions());
+    } catch (Exception e) {
+      // Log error and handle exception
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
   }
 
-  private String generateRandomTitle() {
-    String[] adjectives = {"Fun", "Challenging", "Interesting", "Intriguing", "Exciting"};
-    String[] nouns = {"Quiz", "Challenge", "Test", "Examination", "Assessment"};
+  @PostMapping("/{quizId}/submit")
+  public ResponseEntity<QuizResult> submitQuiz(
+      @PathVariable Long quizId, @RequestBody QuizSubmission submission) {
+    try {
+      Quiz quiz = quizService.findQuizById(quizId);
+      if (quiz == null) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+      }
 
-    String adjective = adjectives[random.nextInt(adjectives.length)];
-    String noun = nouns[random.nextInt(nouns.length)];
+      QuizResult result = quizService.evaluateQuiz(quiz, submission);
 
-    return adjective + " " + noun;
-  }
-
-  private String generateRandomDescription() {
-    String[] descriptions = {
-      "Test your knowledge with this engaging quiz!",
-      "Are you ready to take on this exciting challenge?",
-      "Explore various questions and broaden your understanding.",
-      "A great way to assess your skills and learn new facts.",
-      "Dive into this quiz and see how much you know!"
-    };
-
-    return descriptions[random.nextInt(descriptions.length)];
-  }
-
-  @PostMapping("/submit")
-  public ResponseEntity<QuizResult> submitQuiz(@RequestBody QuizSubmission submission) {
-    QuizResult quizResult = quizService.evaluateQuiz(submission);
-    return ResponseEntity.ok(quizResult);
+      return ResponseEntity.ok(result);
+    } catch (Exception e) {
+      // Log error and handle exception
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
   }
 }
